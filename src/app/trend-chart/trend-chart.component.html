@@ -1,0 +1,13 @@
+<div class="border">
+  <div>
+    Select period in days:
+    <input id="period" [(ngModel)]="chartPeriod">
+    <button (click)="getChartValues()">Update</button>
+  </div>
+  <div class="linechart"> 
+    <canvas baseChart
+      [data]="lineChartData"
+      [options]="styledChartOptions">
+    </canvas>
+  </div>
+</div>

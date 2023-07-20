@@ -1,0 +1,21 @@
+<div>
+    <div>
+      <p>Select cryptocurrency</p>
+    </div>
+    <div>
+      <select id="selectedCoin" [(ngModel)]="selectedCoin">
+        <option *ngFor="let coin of listOfPossibleCoins" [value]="coin.id">{{ coin.display }}</option>
+      </select>
+    </div>
+    <div>
+      <div>
+        <button (click)="loadData()">Load Data</button>
+      </div>
+    </div>
+    <div *ngIf="showData">
+      <app-trend-chart [id]="selectedCoin"></app-trend-chart>
+    </div>
+    <div *ngIf="showData">
+      <app-keyvalue [id]="selectedCoin"></app-keyvalue>
+    </div>
+  </div>

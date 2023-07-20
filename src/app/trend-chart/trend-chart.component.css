@@ -1,0 +1,15 @@
+.border{
+    border-color: black;
+    border-style: dotted;
+    width: 45%;
+    height: 45%;
+}
+
+.linechart{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    width: 90%;
+    height: 90%;
+    box-sizing: border-box;
+}
