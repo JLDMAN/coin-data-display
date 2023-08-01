@@ -1,0 +1,46 @@
+<div class="container frame">
+    <div class="highlightCard">
+        <p>Per coin: {{value}}</p>
+        <p [ngClass]="{'green': isPositive(), 'red': !isPositive()}"> % change: {{change}} </p>
+    </div>
+    <div class="highlightCard">
+        <p>24 hour trading volume (USD)</p>
+        <p>{{tradingVolume24h}}</p>
+    </div>
+    <div class="highlightCard">
+        <p>24 hour max (USD)</p>
+        <p>{{high}}</p>
+    </div>
+    <div class="highlightCard">
+        <p>24 hour low (USD)</p>
+        <p>{{low}}</p>
+    </div>
+</div>
+<div class="container frame">
+    <div class="highlightCard">
+        <p>Global Marketcap Rank</p>
+        <p>{{rank}}</p>
+    </div>
+    <div class="highlightCard">
+        <p>Circulating supply:</p>
+        <p>{{circulating_supply}}</p>
+    </div>
+    <div class="highlightCard">
+        <p>Max supply:</p>
+        <p>{{maxSupply}}</p>
+    </div>
+    <div class="highlightCard">
+        <p>All time high (USD):</p>
+        <p>{{ath}}</p>
+    </div>
+</div>
+<div class="container frame">
+    <div class="highlightCard">
+        <p>All time high change (%):</p>
+        <p>{{ath_change}}</p>
+    </div>
+    <div class="highlightCard">
+        <p>All time high date:</p>
+        <p>{{ath_date}}</p>
+    </div>
+</div>

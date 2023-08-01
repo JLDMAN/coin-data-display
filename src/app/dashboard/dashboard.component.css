@@ -1,0 +1,30 @@
+.navContainer{
+    /* border-radius: 15px;
+    border-style: dashed;
+    border-color: black; */
+    padding:0.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+}
+
+.buttonContainer{
+    border-radius: 15px;
+    border-style: dashed;
+    border-color: black;
+    padding:0.5%;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+}
+
+.buttonObject{
+    padding-inline: 1%;
+}
+
+/* .displays{
+    border-radius: 15px;
+    border-style: dashed;
+    border-color: black;
+} */

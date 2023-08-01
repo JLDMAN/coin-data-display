@@ -1,0 +1,19 @@
+.container{
+    display:flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.space{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2%;
+}
+
+/* styles.css */
+.coin-logo {
+    margin-left: 1%;
+    width: 3%;
+    height: 3%;
+  }

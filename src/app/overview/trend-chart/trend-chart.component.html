@@ -1,0 +1,20 @@
+<div class="frame">
+  <div class="container">
+    <div class="space">
+      <p-selectButton [(ngModel)]="chartPeriod" [options]="periodOptions" [multiple]="false" optionLabel="name"
+        optionValue="value" (onChange)="getChartValues()">
+      </p-selectButton>
+    </div>
+    <div class="space">
+      <form [formGroup]="trendTypeSelect">
+        <p-selectButton formControlName="trendType" [options]="typeOfMarket" optionLabel="label" optionValue="value"
+          (onChange)="getChartValues()">
+        </p-selectButton>
+      </form>
+    </div>
+  </div>
+  <div class="linechart">
+    <canvas baseChart [data]="lineChartData" [options]="styledChartOptions">
+    </canvas>
+  </div>
+</div>

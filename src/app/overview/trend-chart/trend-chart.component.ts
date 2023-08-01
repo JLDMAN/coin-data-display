@@ -1,35 +1,66 @@
-import { Component, Input, OnInit, ChangeDetectorRef  } from '@angular/core';
-import { ApiCallsService } from '../service/apicalls.service';
+import { Component, Input, OnInit, OnChanges, SimpleChanges   } from '@angular/core';
+import { ApiCallsService } from '../../service/apicalls.service';
 import { ChartConfiguration} from 'chart.js';
 import { DatePipe } from '@angular/common';
+import { FormControl, FormGroup, FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-trend-chart',
   templateUrl: './trend-chart.component.html',
   styleUrls: ['./trend-chart.component.css']
 })
-export class TrendChartComponent implements OnInit {
+export class TrendChartComponent implements OnInit, OnChanges {
 
   @Input() id: any;
-  chartPeriod: any;
+
+  chartPeriod: number | undefined; // Define the chartPeriod property
+  typeOfMarket: any[] = [
+    {label: 'Market Cap', value: 'market_caps'}, 
+    {label: 'Price per Unit', value: 'prices'}    
+  ];
 
   // chart type
-  public lineChartData!: ChartConfiguration['data'];
-  
-  timeValues: any[] = [''];
-  priceValues: any[] = [''];
-  marketCapValues: any[] = [''];
+  public lineChartData!: ChartConfiguration['data'];  
+  timeValues: any[] = [];
+  priceValues: any[] = [];
+  marketCapValues: any[] = [];
   showChart: boolean = false;
+  trendTypeSelect: FormGroup;
+  selectedOption: string = '';
 
   constructor(
     private service: ApiCallsService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private formBuilder: FormBuilder
   ) {
+    this.trendTypeSelect = this.formBuilder.group({
+      trendType:''
+    });
+
+    this.chartPeriod = this.periodOptions[0].value;
   }
 
+  periodOptions: any[] = [
+    { name: '24hr', value: 1 },
+    { name: 'week', value: 7 },
+    { name: 'month', value: 28 },
+    { name: 'year', value: 365 }
+  ];
+
   ngOnInit():void {
-    this.chartPeriod = 7;
+    // set market value display defualt
+    this.trendTypeSelect.patchValue({
+      trendType: 'prices'
+    });
+    // draw chart
     this.getChartValues();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['id']) {
+      // draw chart
+      this.getChartValues();
+    }
   }
 
   // chart properties
@@ -45,7 +76,11 @@ export class TrendChartComponent implements OnInit {
       }
     },
     scales: {
-      x: {},
+      x: {
+      grid: {
+        display: false // Hide grid lines for the x-axis
+      }
+      },
       //left axxis
       y: {
         // no minimum value as our distribution values are very low
@@ -53,25 +88,21 @@ export class TrendChartComponent implements OnInit {
         display: true,
         position: 'left',
         beginAtZero: false, // Set beginAtZero to false
-      },
-      // right axxis
-      y1: {
-        type: 'linear',
-        display: false,
-        position: 'right',
-        beginAtZero: false,
         grid: {
-          drawOnChartArea: false, // only want the grid lines for one axis to show up
-        },
+          display: false // Hide grid lines for the x-axis
+        }
       },
     },
   }
 
   getChartValues():void {
-    // console.log("coin name: " + this.id);
-    // console.log("chart period: " + this.chartPeriod)
     this.timeValues = [];
     this.priceValues = [];
+    this.selectedOption = this.trendTypeSelect.value.trendType;
+
+    console.log("id value: " + this.id);
+    console.log("period in days: " + this.chartPeriod);
+    console.log("presentation type: " + this.selectedOption);
 
     if (this.id && this.chartPeriod) {
       this.service.queryTrendData(this.id, this.chartPeriod).subscribe(res => {
@@ -82,8 +113,8 @@ export class TrendChartComponent implements OnInit {
           // date format to readable time
           const formattedDate = this.datePipe.transform(date, 'dd/MM/yyyy', 'en-GB');
           this.timeValues.push(formattedDate);
-          // price of coin
-          this.priceValues.push(res.prices[i][1]);
+          // price/market cap of coin
+          this.priceValues.push(res[this.selectedOption][i][1]);
         }
         this.drawChart();
       })
@@ -99,15 +130,18 @@ export class TrendChartComponent implements OnInit {
         {
           // y-axis values
           data: this.priceValues,
-          label: "Price",
-          backgroundColor: 'rgb(211,228,245)',
-          borderColor: 'rgba(148,159,177,1)',
+          label: "Value (USD)",
+          backgroundColor: [
+            'rgba(211, 211,211, 0.8)'
+          ],
+          borderColor: 'rgba(80,122,189,1)',
           borderWidth: 1,
           pointRadius: [], // Empty array to remove circles from all points
           pointHoverRadius: 4,
           fill: 'origin',
-          type: 'line'
-        },
+          type: 'line',
+          yAxisID: 'y',
+        }
       ],
       // x-axis values
       labels: this.timeValues

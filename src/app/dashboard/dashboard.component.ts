@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { timeInterval } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,28 +9,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  showData: boolean = false;
-  listOfPossibleCoins: any[] = [];
-  selectedCoin: string = '';
+  showSubRoutes: boolean = false;
 
   constructor(
+    private router: Router,
+    private route: ActivatedRoute
   ){
   }
 
   ngOnInit(){
-    this.listOfPossibleCoins = [
-      { id: 'bitcoin', display: 'Bitcoin'},
-      { id: 'kaspa', display: 'Kaspa'},
-      { id: 'ethereum-classic', display: 'Etherium Classic'},
-      { id: 'litecoin', display:'Litecoin'}
-    ];
   }
 
-  loadData(){
-    this.showData = false; // Show the chart
+  printScreen(){
+  }
 
-    if (this.selectedCoin){
-      this.showData = true; // Show the chart
-    }
+  loadOverview() {
+    this.showSubRoutes = false;
+    this.router.navigate(['dashboard/overview']);
+    this.showSubRoutes = true;
+  }
+
+  loadInfo(){
+    this.showSubRoutes = false;
+    this.router.navigate(['dashboard/projectdetails']);
+    this.showSubRoutes = true;
+  }
+
+  loadExchangeInfo(){
+    this.showSubRoutes = false;
+    this.router.navigate(['dashboard/exchanges']);
+    this.showSubRoutes = true;
   }
 }

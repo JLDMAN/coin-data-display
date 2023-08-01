@@ -1,0 +1,28 @@
+.frame{
+    /* border-radius: 15px;
+    border-color: black;
+    border-style: dashed; */
+    width: 700px;
+    height: 500px;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+}
+
+.linechart{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    width: 95%;
+    height: 90%;
+    box-sizing: border-box;
+    padding-left: 3%;
+}
+
+.space{
+    padding-left: 3%;
+    padding-right: 3%;
+}
