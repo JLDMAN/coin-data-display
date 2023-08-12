@@ -100,9 +100,9 @@ export class TrendChartComponent implements OnInit, OnChanges {
     this.priceValues = [];
     this.selectedOption = this.trendTypeSelect.value.trendType;
 
-    console.log("id value: " + this.id);
-    console.log("period in days: " + this.chartPeriod);
-    console.log("presentation type: " + this.selectedOption);
+    // console.log("id value: " + this.id);
+    // console.log("period in days: " + this.chartPeriod);
+    // console.log("presentation type: " + this.selectedOption);
 
     if (this.id && this.chartPeriod) {
       this.service.queryTrendData(this.id, this.chartPeriod).subscribe(res => {

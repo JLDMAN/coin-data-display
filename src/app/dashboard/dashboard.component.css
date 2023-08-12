@@ -2,11 +2,10 @@
     /* border-radius: 15px;
     border-style: dashed;
     border-color: black; */
-    padding:0.5%;
     display: flex;
     align-items: center;
     justify-content: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 .buttonContainer{

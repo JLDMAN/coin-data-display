@@ -18,6 +18,7 @@ import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { CardModule } from 'primeng/card';
+import { TableModule } from 'primeng/table';
 // charts
 import { NgChartsModule } from 'ng2-charts';
 import { KeyvalueComponent } from './overview/keyvalues/keyvalue.component';
@@ -53,7 +54,8 @@ import { ExchangesComponent } from './exchanges/exchanges.component';
     ToggleButtonModule,
     NgChartsModule,
     SelectButtonModule,
-    CardModule
+    CardModule,
+    TableModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

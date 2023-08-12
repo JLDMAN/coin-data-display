@@ -2,23 +2,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2%;
+    /* border-color: black;
+    border-radius: 15px;
+    border-style: dashed; */
+
 }
 
 .frame{
-    /* border-radius: 15px;
-    border-color: black;
-    border-style: dashed; */
     width: 800px;
-    height: 100px;
+    height: 20%;
+    box-sizing: border-box;
 }
 
 .highlightCard{
     box-shadow: 2px 5px 9px #373b3b;
     width: 25%;
-    margin-left: 1%;
-    margin-right: 1%;
-    padding-left: 0.5%;
+    margin-left: 2%;
+    padding-left: 2%;
     border-radius: 15px;
 }
 

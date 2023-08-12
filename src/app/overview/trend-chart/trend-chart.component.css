@@ -1,28 +1,30 @@
 .frame{
+    margin-top: 1%;
     /* border-radius: 15px;
     border-color: black;
     border-style: dashed; */
-    width: 700px;
-    height: 500px;
 }
 
 .container{
     display: flex;
     align-items: center;
-    align-content: space-between;
+    justify-content: center;
+    /* border-radius: 15px;
+    border-color: black;
+    border-style: dashed; */
 }
 
 .linechart{
     display: flex;
     align-items: center;
-    align-content: center;
-    width: 95%;
-    height: 90%;
+    justify-content: center;
+    height: 350px;
     box-sizing: border-box;
-    padding-left: 3%;
+    /* border-radius: 15px;
+    border-color: black;
+    border-style: dashed; */
 }
 
 .space{
     padding-left: 3%;
-    padding-right: 3%;
 }

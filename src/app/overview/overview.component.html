@@ -7,13 +7,11 @@
 <div *ngIf="showIcon">
     <div class="container">
         <div>
+            <app-keyvalue [id]="selectedCoin" (imageIdChange)="onImageIdChange($event)"></app-keyvalue>
             <app-trend-chart [id]="selectedCoin"></app-trend-chart>
         </div>
         <div>
-            <app-keyvalue [id]="selectedCoin" (imageIdChange)="onImageIdChange($event)"></app-keyvalue>
+            <app-top10coins></app-top10coins>
         </div>
     </div>
-    <!-- <div>
-        <app-top10coins></app-top10coins>
-    </div> -->
 </div>

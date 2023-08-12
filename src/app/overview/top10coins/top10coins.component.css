@@ -1,3 +1,20 @@
-.container{
+.mainContainer{
     display:flex;
+    justify-content: space-between;
+    margin-top: 6%;
+    margin-left: 2%
+    
+}
+
+.displayContainer{
+    margin-left: 2%;
+}
+
+.container{
+    display: flex;
+    margin-left: 2%;
+}
+
+.displayElement{
+    margin-left: 2%;
 }
