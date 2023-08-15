@@ -1,52 +1,16 @@
-<!-- <div class="mainContainer">
-    <div class="displayContainer">
-        <p>Top 10 coins by market cap: </p>
-        <div class="topValueEntry">
-            <div *ngFor="let item of coindata" class="container">
-                <div>
-                    <app-logos [id]="item.name"></app-logos>
-                </div>
-                <div class="displayElement">
-                    {{ item.name }}: {{ item.percentage }}%
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="displayContainer">
-        <p>Top searched coins (Coin Geco): </p>
-        <div class="topValueEntry">
-            <div *ngFor="let coins of searchedCoins" class="container">
-                <div>
-                    {{coins}}
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="displayContainer">
-        <p>Top searched nfts (Coin Geco): </p>
-        <div class="topValueEntry">
-            <div *ngFor="let nft of serachedNFTS" class="container">
-                <div>
-                    {{nft}}
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 <p-table [value]="coindata" [styleClass]="sizes[0].class">
     <ng-template pTemplate="header">
         <tr>
-            <th>Top 10 coins by market cap:</th>
+            <th>Coin name:</th> 
+            <th>Market Cap %</th>
             <th>Coin Logo</th>
-            <th>Top searched coins (Coin Geco):</th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-coindata>
+    <ng-template pTemplate="body" let-data>
         <tr>
-            <td>{{coindata.name}}: {{ coindata.percentage }}%</td>
-            <td><app-logos [id]="coindata.name" (error)="handleImageError($event)"></app-logos></td>
-            <td>{{coindata.searchedCoins}}</td>
+          <td>{{data.name}}</td>
+          <td>{{data.percentage}}%</td>
+          <td><app-logos [id]="data.name" (error)="handleImageError($event)"></app-logos></td>
         </tr>
-    </ng-template>
+      </ng-template>
 </p-table>

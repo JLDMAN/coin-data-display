@@ -32,4 +32,30 @@ export class ApiCallsService {
   queryForMostSearched(){
     return this.http.get<any>('https://api.coingecko.com/api/v3/search/trending');
   }
+
+  queryForTop10Coins(){
+    return this.http.get<any>('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false&locale=en');
+  }
+
+  queryForTop10NFTSList(){
+    return this.http.get<any>('https://api.coingecko.com/api/v3/nfts/list?order=market_cap_usd_desc&per_page=10&page=1');
+  }
+
+  queryForTop10NFTSProperties(nftID: any){
+    const id = nftID
+    return this.http.get<any>('https://api.coingecko.com/api/v3/nfts/' + id);
+  }
+
+  queryForTop10Exchanges(){
+    return this.http.get<any>('https://api.coingecko.com/api/v3/exchanges')
+  }
+
+  queryForCompanyData(id: any){
+    const coin = id;
+    return this.http.get<any>('https://api.coingecko.com/api/v3/companies/public_treasury/' + coin);
+  }
+
+  queryForGlobalData(){
+    return this.http.get<any>('https://api.coingecko.com/api/v3/global');
+  }
 }

@@ -25,8 +25,8 @@ import { KeyvalueComponent } from './overview/keyvalues/keyvalue.component';
 import { Top10coinsComponent } from './overview/top10coins/top10coins.component';
 import { LogosComponent } from './dashboard/logos/logos.component';
 import { OverviewComponent } from './overview/overview.component';
-import { SocialComponent } from './social/social.component';
 import { ExchangesComponent } from './exchanges/exchanges.component';
+import { TopTenComponent } from './toptencoins/top10coins.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +37,8 @@ import { ExchangesComponent } from './exchanges/exchanges.component';
     Top10coinsComponent,
     LogosComponent,
     OverviewComponent,
-    SocialComponent,
-    ExchangesComponent
+    ExchangesComponent,
+    TopTenComponent
   ],
   imports: [
     BrowserModule,

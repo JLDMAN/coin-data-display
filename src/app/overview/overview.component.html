@@ -4,14 +4,20 @@
     </p-dropdown>
     <img src={{imageUrl}} alt="coin logo" class="coin-logo">
 </div>
-<div *ngIf="showIcon">
+<div>
     <div class="container">
-        <div>
+        <div class="containerDiv">
             <app-keyvalue [id]="selectedCoin" (imageIdChange)="onImageIdChange($event)"></app-keyvalue>
             <app-trend-chart [id]="selectedCoin"></app-trend-chart>
         </div>
-        <div>
+        <div class="containerDiv">
+            <div class="text">
+                <p> Top 10 coins by market cap:</p>
+            </div>
             <app-top10coins></app-top10coins>
+            <div class="text">
+                <p> Data obtained from <a href="https://www.coingecko.com/en/api">CoinGecko API</a> </p>
+            </div>
         </div>
     </div>
 </div>

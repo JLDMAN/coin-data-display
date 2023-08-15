@@ -35,14 +35,14 @@ export class OverviewComponent implements OnInit {
 
     this.id='bitcoin';
     this.showIcon = true
-    console.log("image url string: " + this.imageUrl);
+    // console.log("image url string: " + this.imageUrl);
   }
 
   loadData(){
     this.showIcon = false; // hide data
     setTimeout(() => {
       this.showIcon = true; // show the chart after a short delay
-      console.log("image url string: " + this.imageUrl);
+      // console.log("image url string: " + this.imageUrl);
     }, 1);
   }
 

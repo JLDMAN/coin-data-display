@@ -29,40 +29,24 @@ export class Top10coinsComponent {
 
   ngOnInit(): void {
     this.top10Data();
-    this.topSearchedCoins();
+    // this.topSearchedCoins();
 
     this.sizes = [
       { name: 'Small', class: 'p-datatable-sm' },
     ]
   }
 
-  ngOnChanges(): void {
-    this.top10Data();
-    this.topSearchedCoins();
-  }
-
   top10Data() {
-    // Initialize the data array before using it
-    this.coindata = [];
-  
-    // get global rank and images
-    this.service.queryForMarketValue().subscribe(res => {
-      for (let i = 0; i < 6; i ++) {
-        this.coindata.push({
-          name: res.data.market_cap_percentage[i],
-          percentage: res.data.market_cap_percentage[res.data.market_cap_percentage][i]
-        });
-      }
-    });
-
-    this.service.queryForMarketValue().subscribe(res => {
-      for (let item in res.data.market_cap_percentage) {
-        this.coindata.push({
+    if (this.coindata.length <= 0){
+      this.service.queryForMarketValue().subscribe(res => {
+        this.coindata = Object.keys(res.data.market_cap_percentage).map(item => ({
           name: item,
-          percentage: res.data.market_cap_percentage[item].toFixed(2)
-        });
-      }
-    });
+          percentage: parseFloat(res.data.market_cap_percentage[item]).toFixed(2)
+        }));
+        // console.log(this.coindata);
+      });
+    }else{
+    }
   }
 
   topSearchedCoins(){

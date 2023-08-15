@@ -2,7 +2,7 @@ import { OverviewComponent } from '../overview/overview.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from '../dashboard/dashboard.component';
-import { SocialComponent } from '../social/social.component';
+import { TopTenComponent } from '../toptencoins/top10coins.component';
 import { ExchangesComponent } from '../exchanges/exchanges.component';
 
 const routes: Routes = [
@@ -11,7 +11,7 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       {path: 'overview', component: OverviewComponent},
-      {path: 'projectdetails', component: SocialComponent},
+      {path: 'top10coins', component: TopTenComponent},
       {path: 'exchanges', component: ExchangesComponent},
     ]},
 ];

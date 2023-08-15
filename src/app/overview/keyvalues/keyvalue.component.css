@@ -9,8 +9,8 @@
 }
 
 .frame{
-    width: 800px;
-    height: 20%;
+    width: 100%;
+    /* height: 27%; */
     box-sizing: border-box;
 }
 

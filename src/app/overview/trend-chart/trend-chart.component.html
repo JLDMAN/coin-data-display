@@ -1,4 +1,4 @@
-<div class="frame">
+<div class="top">
   <div class="container">
     <div class="space">
       <p-selectButton [(ngModel)]="chartPeriod" [options]="periodOptions" [multiple]="false" optionLabel="name"
@@ -13,7 +13,7 @@
       </form>
     </div>
   </div>
-  <div class="linechart">
+  <div class="linechart top">
     <canvas baseChart [data]="lineChartData" [options]="styledChartOptions">
     </canvas>
   </div>

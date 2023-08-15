@@ -1,0 +1,30 @@
+.image-scaling {
+    width: 10%;
+    height: 10%;
+}
+
+.table{
+    border-radius: 15px;
+    padding: 1%;
+    background-color: aliceblue;
+}
+
+.rows{
+    width:9%;
+}
+
+.half{
+    margin-top: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.green {
+    color: green;
+    font-weight: bold;
+}
+
+.red {
+    color: red;
+}

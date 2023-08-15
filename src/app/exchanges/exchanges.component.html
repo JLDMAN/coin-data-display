@@ -1,1 +1,43 @@
-<p>exchanges works!</p>
+<div class="space">
+    <p-dropdown [options]="listOfPossibleCoins" optionLabel="display" optionValue="id"
+        (ngModelChange)="getCompanyData($event)" selectedItemsLabel="{0} items selected" id="selectedCoin"
+        [(ngModel)]="selectedCoin">
+    </p-dropdown>
+</div>
+<div class="container">
+    <div class="table">
+        <p-table [value]="company" [styleClass]="size.class">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Company name</th>
+                    <th>Holdings</th>
+                    <th>Supply %</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-company>
+                <tr>
+                    <td>{{company.name}}</td>
+                    <td>{{company.totalHoldings}}</td>
+                    <td>{{company.percentageTotalSupply}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <div>
+        <p-table [value]="global" [styleClass]="size.class">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Coin name:</th>
+                    <th>Market Cap %</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-data>
+                <tr>
+                    <td>{{data.name}}</td>
+                    <td>{{data.percentage}}%</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+</div>

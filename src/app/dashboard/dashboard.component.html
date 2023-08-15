@@ -1,21 +1,21 @@
 <div class="navContainer">
   <div class="buttonObject">
-    <p-button label="Overview" styleClass="p-button-raised p-button-text p-button-secondary"
+    <p-button label="Coin Overview" styleClass="p-button-raised p-button-text p-button-secondary"
       (click)="loadOverview()"></p-button>
   </div>
   <div class="buttonObject">
-    <p-button label="Project Information" styleClass="p-button-raised p-button-text p-button-secondary"
-      (click)="loadInfo()"></p-button>
+    <p-button label="Top 10 Overview" styleClass="p-button-raised p-button-text p-button-secondary"
+      (click)="loadTop10Coins()"></p-button>
   </div>
   <div class="buttonObject">
-    <p-button label="Listed Exchanges" styleClass="p-button-raised p-button-text p-button-secondary"
+    <p-button label="Global Data" styleClass="p-button-raised p-button-text p-button-secondary"
       (click)="loadExchangeInfo()"></p-button>
   </div>
-  <div>
+  <!-- <div>
     <button pButton pRipple label="Print Screen" class="p-button-success" (click)="printScreen()"></button>
-  </div>
+  </div> -->
 </div>
 
-<div class="displays" *ngIf="showSubRoutes">
+<div class="displays">
   <router-outlet></router-outlet>
 </div>

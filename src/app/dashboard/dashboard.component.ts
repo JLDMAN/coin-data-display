@@ -24,20 +24,14 @@ export class DashboardComponent implements OnInit {
   }
 
   loadOverview() {
-    this.showSubRoutes = false;
     this.router.navigate(['dashboard/overview']);
-    this.showSubRoutes = true;
   }
 
-  loadInfo(){
-    this.showSubRoutes = false;
-    this.router.navigate(['dashboard/projectdetails']);
-    this.showSubRoutes = true;
+  loadTop10Coins(){
+    this.router.navigate(['dashboard/top10coins']);
   }
 
   loadExchangeInfo(){
-    this.showSubRoutes = false;
     this.router.navigate(['dashboard/exchanges']);
-    this.showSubRoutes = true;
   }
 }

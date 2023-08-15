@@ -1,7 +1,7 @@
 .container{
     display:flex;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
 }
 
 .space{
@@ -16,25 +16,19 @@
     margin-left: 1%;
     width: 3%;
     height: 3%;
-  }
-
-.frame{
-    border-radius: 5px;
-    border-style: dashed;
-    border-width: 2px;
-    border-color: black;
 }
 
-.spaceBottom{
-    border-radius: 15px;
-    border-color: black;
-    border-style: dashed;
-    margin-bottom: 1%;
+.containerDiv{
+    width: 47.5%;
+    padding-left: 2.5%;
 }
 
-.spaceTop{
-    border-radius: 15px;
-    border-color: black;
-    border-style: dashed;
-    margin-top: 11%;
+.top{
+    margin-top: 0.5%;
+}
+
+.text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
