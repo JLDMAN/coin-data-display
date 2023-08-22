@@ -13,6 +13,11 @@ export class ExchangesComponent implements OnInit{
   global: any[] =[];
   selectedCoin: string = '';
 
+  marketCap: any[] =[];
+  marketCapID: any[] =[];
+  marketCapPercentage: any[] =[];
+  marketCapPercentageID: any[] =[];
+
   // table sizing
   size: any = { 
     name: 'Small', class: 'p-datatable-sm' 
@@ -34,7 +39,7 @@ export class ExchangesComponent implements OnInit{
 
   getCompanyData(coin: string) {
     this.apiService.queryForCompanyData(coin).subscribe(res => {
-      for (let i = 0; i < res.companies.length; i++) {
+      for (let i = 0; i < 9; i++) {
         this.company.push({
           name: res.companies[i].name,
           totalHoldings: res.companies[i].total_holdings,
@@ -43,26 +48,16 @@ export class ExchangesComponent implements OnInit{
       }
     });
   }
-
-  getGlobalValues(){
+  
+  getGlobalValues() {
     this.apiService.queryForGlobalData().subscribe(res => {
-      for (let i = 0; i <= 9; i++) {
-        this.global = Object.keys(res.data.total_market_cap).map(item => ({
-          name: item,
-          percentage: parseFloat(res.data.total_market_cap[item]).toFixed(2)
-        }));
-        // this.global.push({
-        //   totalMarketCap: res.data.total_market_cap[i],
-        //   totalVolume: res.data.total_volume[i],
-        //   marketCapPercentage: res.data.market_cap_percentage[i],
-        // });        
-      }
-      // this.global.push({
-      //   activeCryptocurrencies: res.data.active_cryptocurrencies,
-      //   ongoingIcos: res.data.ongoing_icos,
-      //   markets: res.data.markets,
-      //   marketCapChange: res.data.market_cap_change_percentage_24h_usd,
-      // });
-    })
+      const data = res.data; // Access the 'data' object
+      // Access the nested properties within 'data'
+      this.marketCap = Object.values(data.total_market_cap).slice(0, 10); // Get the first 10 values
+      this.marketCapPercentage = Object.values(data.market_cap_percentage).slice(0, 10); // Get the first 10 values
+      // Get the ID field names from total_market_cap
+      this.marketCapID = Object.keys(data.total_market_cap).slice(0, 10); // Get the first 10 keys
+      this.marketCapPercentageID = Object.keys(data.market_cap_percentage).slice(0, 10); // Get the first 10 keys
+    });
   }
 }

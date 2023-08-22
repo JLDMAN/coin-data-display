@@ -4,7 +4,8 @@
         [(ngModel)]="selectedCoin">
     </p-dropdown>
 </div>
-<div class="container">
+
+<div class="half">
     <div class="table">
         <p-table [value]="company" [styleClass]="size.class">
             <ng-template pTemplate="header">
@@ -23,21 +24,42 @@
             </ng-template>
         </p-table>
     </div>
-    <div>
-        <p-table [value]="global" [styleClass]="size.class">
+</div>
+
+<div class="half">
+    <div class="table">
+        <p-table [value]="marketCap" [styleClass]="size.class">
             <ng-template pTemplate="header">
                 <tr>
-                    <th>Coin name:</th>
-                    <th>Market Cap %</th>
+                    <th>ID</th>
+                    <th>Market Cap</th>
                 </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-data>
+            <ng-template pTemplate="body" let-marketCapData let-i="rowIndex">
                 <tr>
-                    <td>{{data.name}}</td>
-                    <td>{{data.percentage}}%</td>
+                    <td>{{ marketCapID[i] }}</td>
+                    <td>{{ marketCapData | number }}</td>
                 </tr>
             </ng-template>
         </p-table>
     </div>
+</div>
 
+<div class="half">
+    <div class="table">
+        <p-table [value]="marketCapPercentage" [styleClass]="size.class">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>ID</th>
+                    <th>Market Cap %</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-marketCapPercentageData let-i="rowIndex">
+                <tr>
+                    <td>{{ marketCapPercentageID[i] }}</td>
+                    <td>{{ marketCapPercentageData | number }}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
 </div>

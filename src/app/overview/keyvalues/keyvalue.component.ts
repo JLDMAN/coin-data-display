@@ -60,14 +60,6 @@ export class KeyvalueComponent implements OnInit, OnChanges {
       this.maxSupply = res[0].max_supply;
       this.imageId = res[0].image;
       this.imageIdChange.emit(this.imageId);
-      
-      // console.log("value variable: " +this.value+ "change value: " + this.change);
-      // this.tradingVolume24h = res[0].total_volume;
-      // this.high = res[0].high_24h;
-      // this.low = res[0].low_24h;
-      // this.ath_date = res[0].ath_date;
-      // this.rank = res[0].market_cap_rank;
-      // this.showValues = true;
     })
   }
 

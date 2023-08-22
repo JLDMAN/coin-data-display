@@ -3,19 +3,19 @@
         <p>Per coin: </p>
         <p>{{value}}</p>
         <p>% change: </p>
-        <p [ngClass]="{'green': isPositive(), 'red': !isPositive()}">{{change}} </p>
+        <p [ngClass]="{'green': change >= 0.0, 'red': change < 0.0}">{{change}} </p>
     </div>
     <div class="highlightCard">
         <p>Market cap: </p>
         <p>{{marketCap}}</p>
         <p>% change:</p>
-        <p [ngClass]="{'green': isPositive(), 'red': !isPositive()}">{{marketCapChange}}</p>
+        <p [ngClass]="{'green': marketCapChange >= 0.0, 'red': marketCapChange < 0.0}">{{marketCapChange}}</p>
     </div>
     <div class="highlightCard">
         <p>All time high (USD):</p>
         <p>{{ath}}</p>
         <p>% change:</p>
-        <p [ngClass]="{'green': isPositive(), 'red': !isPositive()}">{{ath_change}}</p>
+        <p [ngClass]="{'green': ath_change >= 0.0, 'red': ath_change < 0.0}">{{ath_change}}</p>
     </div>
     <div class="highlightCard">
         <p>Circulating supply:</p>
