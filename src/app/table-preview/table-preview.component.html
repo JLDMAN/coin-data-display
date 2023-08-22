@@ -1,0 +1,67 @@
+<div class="card">
+    <p-table [value]="data" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
+      <ng-template pTemplate="caption">
+        Lexpro Employees
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Name</th>
+          <th>Car</th>
+          <th>Age</th>
+          <th>Country</th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-datas let-editing="editing" let-ri="rowIndex">
+        <tr [pEditableRow]="datas">
+          <td>
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input pInputText type="text" [(ngModel)]="datas.name">
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{ datas.name }}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td>
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input pInputText type="text" [(ngModel)]="datas.car">
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{ datas.car }}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td>
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input pInputText type="number" [(ngModel)]="datas.age">
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{ datas.age }}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td>            
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input pInputText type="number" [(ngModel)]="datas.country">
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{ datas.country }}
+              </ng-template>
+          </p-cellEditor>
+        </td>
+          <td>
+            <div class="flex align-items-center justify-content-center gap-2">
+              <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" (click)="onRowEditInit(datas)" class="p-button-rounded p-button-text"></button>
+              <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check" (click)="onRowEditSave(datas)" class="p-button-rounded p-button-text p-button-success mr-2"></button>
+              <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times" (click)="onRowEditCancel(datas, ri)" class="p-button-rounded p-button-text p-button-danger"></button>
+          </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>

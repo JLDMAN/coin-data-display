@@ -19,6 +19,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
+import { MessageService } from 'primeng/api';
 // charts
 import { NgChartsModule } from 'ng2-charts';
 import { KeyvalueComponent } from './overview/keyvalues/keyvalue.component';
@@ -27,6 +28,7 @@ import { LogosComponent } from './dashboard/logos/logos.component';
 import { OverviewComponent } from './overview/overview.component';
 import { ExchangesComponent } from './exchanges/exchanges.component';
 import { TopTenComponent } from './toptencoins/top10coins.component';
+import { TablePreviewComponent } from './table-preview/table-preview.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { TopTenComponent } from './toptencoins/top10coins.component';
     LogosComponent,
     OverviewComponent,
     ExchangesComponent,
-    TopTenComponent
+    TopTenComponent,
+    TablePreviewComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,9 @@ import { TopTenComponent } from './toptencoins/top10coins.component';
     CardModule,
     TableModule
   ],
-  providers: [DatePipe],
+  providers: [
+    DatePipe,
+    MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

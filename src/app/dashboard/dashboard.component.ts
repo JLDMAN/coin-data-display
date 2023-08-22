@@ -34,4 +34,8 @@ export class DashboardComponent implements OnInit {
   loadExchangeInfo(){
     this.router.navigate(['dashboard/exchanges']);
   }
+
+  loadTestTable(){
+    this.router.navigate(['/tabletest'])
+  }
 }
